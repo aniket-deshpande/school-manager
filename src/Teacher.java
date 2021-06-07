@@ -9,10 +9,4 @@ public class Teacher extends Person {
     this.email = l + "." + f + "@fakeschool.edu";
   }
 
-  // Mutators and Accessors
-
-  public void setFirstName(String newName) { this.firstName = newName; }
-  public void setLastName(String newName) { this.lastName = newName; }
-
-
 }

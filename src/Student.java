@@ -13,10 +13,6 @@ public class Student extends Person {
         this.email = this.ID + "@fakeschool.edu";
     }
 
-    // Mutators and Accessors
-
-    public void setFirstName(String newName) { this.firstName = newName; }
-    public void setLastName(String newName) { this.lastName = newName; }
     public void setGradeLevel(int newGrade) { this.gradeLevel = newGrade; }
 
     public int getGradeLevel() { return this.gradeLevel; }

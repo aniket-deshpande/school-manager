@@ -96,5 +96,10 @@ public class Main {
 		}
 	}
 
-	public static String getHelp() { return "THE COMMAND LINE IS CASE SENSITIVE\n\tH: List of Commands\n\tQ: Save and Quit Program\n\tA: Add a Teacher, Student, or Course"; }
+	public static String getHelp() { 
+		return (
+			"THE COMMAND LINE IS CASE SENSITIVE\n\tH: List of Commands\n\tQ: Save and Quit Program\n\tA: Add a Teacher, Student, or Course"
+		);
+	}
 }
+

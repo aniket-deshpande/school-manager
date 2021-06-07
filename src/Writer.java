@@ -11,8 +11,7 @@ public class Writer {
 
     public Writer(String path) {
         file = new File(path);
-        try {
-            fileWriter = new FileWriter(file);
+        try { fileWriter = new FileWriter(file);
         } catch (IOException e) {
             e.printStackTrace();
         }
