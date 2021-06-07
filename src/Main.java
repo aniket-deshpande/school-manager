@@ -9,6 +9,10 @@ public class Main {
 	static Writer teacherWriter = new Writer("C:\\Dev\\AP\\SchoolManager\\txt\\teachers.txt");
 	static Writer courseWriter = new Writer("C:\\Dev\\AP\\SchoolManager\\txt\\courses.txt");
 
+	static Reader studentReader = new Reader("C:\\Dev\\AP\\SchoolManager\\txt\\students.txt");
+	static Reader teacherReader = new Reader("C:\\Dev\\AP\\SchoolManager\\txt\\teachers.txt");
+	static Reader courseReader = new Reader("C:\\Dev\\AP\\SchoolManager\\txt\\courses.txt");
+
 	// Scanner and Lists
 	public static Scanner input = new Scanner(System.in);
 	static ArrayList<Teacher> teachers = new ArrayList<Teacher>();
@@ -22,7 +26,7 @@ public class Main {
 	}
 
 	// Initialize the System
-	public static void init() {
+	public static void init() throws IOException {
 		System.out.println("Welcome to the School Management System.\nThe System will manage all of the school's teachers, students, and courses.\nIt will automatically schedule the courses.");
 		System.out.println("---------------------------------------------------------------------------------");
 		System.out.print("Enter how many courses you want to add to your school (up to five) >> ");
@@ -36,6 +40,7 @@ public class Main {
 			System.out.print("Enter the course name >> ");
 			c[i] = input.nextLine();
 			courses.add(new Course(c[i]));
+			courseWriter.writeCourse(new Course(c[i]));
 		}
 
 		System.out.println("\nYour courses are added! You will now see the System's command line open in 3 seconds. From there you can control your entire School. Be sure to type \"H\" to get a list of commands.");
@@ -54,6 +59,11 @@ public class Main {
 					break;
 				case "Q":
 					System.out.println("Exiting in 5 seconds...");
+					Thread.sleep(2000);
+					System.out.println("Closing text writers...");
+					courseWriter.closeFile();
+					teacherWriter.closeFile();
+					studentWriter.closeFile();
 					Thread.sleep(5000);
 					System.exit(0);
 				case "A":
@@ -88,6 +98,25 @@ public class Main {
 							courseWriter.writeCourse(new Course(cName));
 							commandLine();
 					}
+				case "G":
+					System.out.print("Do you want to read all (S)tudents, (T)eachers, or (C)ourses? >> ");
+					String get = input.nextLine();
+					switch(get) {
+					case "S":
+						System.out.println(studentReader.readAll());
+						commandLine();
+					case "T":
+						System.out.println(teacherReader.readAll());
+						commandLine();
+					case "C":
+						System.out.println(courseReader.readAll());
+						commandLine();
+					default:
+						System.out.println("Not a valid command, restarting command line in 3 seconds...");
+						Thread.sleep(3000);
+						commandLine();
+					
+					}
 				default:
 					System.out.println("Not a valid command, restarting command line in 3 seconds...");
 					Thread.sleep(3000);
@@ -98,7 +127,7 @@ public class Main {
 
 	public static String getHelp() { 
 		return (
-			"THE COMMAND LINE IS CASE SENSITIVE\n\tH: List of Commands\n\tQ: Save and Quit Program\n\tA: Add a Teacher, Student, or Course"
+			"THE COMMAND LINE IS CASE SENSITIVE\n\tH: List of Commands\n\tQ: Save and Quit Program\n\tA: Add a Teacher, Student, or Course\n\tG: Get a list of Students, Teachers, or Courses"
 		);
 	}
 }

@@ -25,19 +25,23 @@ public class Writer {
     public void writeStudent(Student s) throws IOException {
 		bufferedWriter.write(s.getLastName() + ", " + s.getFirstName() + ", " + s.getGradeLevel() + "\n");
 		System.out.println("Student added!");
-		bufferedWriter.close();
+        bufferedWriter.flush();
     }
 
     public void writeTeacher(Teacher t) throws IOException {
         bufferedWriter.write(t.getLastName() + ", " + t.getFirstName() +"\n");
 		System.out.println("\nTeacher added!");
-		bufferedWriter.close();
+        bufferedWriter.flush();
     }
 
     public void writeCourse(Course c) throws IOException {
-        bufferedWriter.write(c.getName() + ", " + c.getTeacher().getLastName() + "\n");
+        bufferedWriter.write(c.getName() + "\n");
 		System.out.println("\nCourse added!");
-		bufferedWriter.close();
+        bufferedWriter.flush();
+    }
+
+    public void closeFile() throws IOException {
+        bufferedWriter.close();
     }
     
 }

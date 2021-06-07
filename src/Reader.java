@@ -2,6 +2,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
+// import java.nio.charset.StandardCharsets;
 
 public class Reader {
     
@@ -22,5 +24,15 @@ public class Reader {
     public File getFile() { return file; }
     public FileReader getFileReader() { return fileReader; }
     public BufferedReader getBufferedReader() { return bufferedReader; }
+
+    public String readAll() throws IOException {
+        String s = "";
+        String line = bufferedReader.readLine();
+        while (line != null){
+            s +=line + "\n";
+            line = bufferedReader.readLine();
+        }
+        return s;
+    }
 
 }
