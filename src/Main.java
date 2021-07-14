@@ -5,13 +5,13 @@ import java.lang.Thread;
 public class Main {
 
 	// File Writers & Readers
-	static Writer studentWriter = new Writer("C:\\Dev\\AP\\SchoolManager\\txt\\students.txt");
-	static Writer teacherWriter = new Writer("C:\\Dev\\AP\\SchoolManager\\txt\\teachers.txt");
-	static Writer courseWriter = new Writer("C:\\Dev\\AP\\SchoolManager\\txt\\courses.txt");
+	static Writer studentWriter = new Writer("txt/students.txt");
+	static Writer teacherWriter = new Writer("txt/teachers.txt");
+	static Writer courseWriter = new Writer("txt/courses.txt");
 
-	static Reader studentReader = new Reader("C:\\Dev\\AP\\SchoolManager\\txt\\students.txt");
-	static Reader teacherReader = new Reader("C:\\Dev\\AP\\SchoolManager\\txt\\teachers.txt");
-	static Reader courseReader = new Reader("C:\\Dev\\AP\\SchoolManager\\txt\\courses.txt");
+	static Reader studentReader = new Reader("txt/students.txt");
+	static Reader teacherReader = new Reader("txt/teachers.txt");
+	static Reader courseReader = new Reader("txt/courses.txt");
 
 	// Scanner and Lists
 	public static Scanner input = new Scanner(System.in);
